@@ -1,0 +1,17 @@
+{
+  "transport": "scp",
+  "hostname": "34.76.184.227",
+  "port": 22,
+  "username": "student8",
+  "password": "",
+  "keyfile": "/home/marko/Desktop/keyfile/student8",
+  "passphrase": "",
+  "target": "/var/www/website8.northcapeacademy.org",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**",
+    ".tags**",
+    "vendor/**"
+  ],
+  "uploadOnSave": true
+}
