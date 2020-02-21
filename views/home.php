@@ -18,6 +18,7 @@
           <label for="password">Password:</label>
           <br> <input type="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,255}">
           <button>Sign In</button>
+          <p><a href='/signup'>Register</a></p>
         </p>
       </form>
 

@@ -10,17 +10,21 @@
       <h1>Dashboard</h1>
 
       <?php
-        require_once("../models/user.php");
-
-        $user = new User();
-        $user->findById($_SESSION["userId"]);
-
-        if(!empty($_SESSION["userId"])) {
+        if($app->getSignedInUser()) {
+          require_once("../models/user.php");
+          $user = new User();
+          $user->findById($app->getSignedInUser());
           echo "Welcome Back $user->name";
           echo "<p><a href='/orders'>Click Here to see your orders</a></p>";
           echo "<p><a href='/signout'>SignOut</a></p>";
         } else {
           echo "Your not signed In";
+          if($app->userError) {
+            echo "<p>The Email address or password is incorrect</p>";
+          }
+          if($app->systemError) {
+            echo "<p>Sorry, there is a problem with website, please try again later.</p>";
+          }
           echo "<p><a href='/'>Click here to go to home page</a></p>";
         }
       ?>

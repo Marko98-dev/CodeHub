@@ -31,12 +31,19 @@
     // cheking in database
 
     if ($validEmail && $validPassword) {
-      require_once("../models/user.php");
+      try {
+        require_once("../models/user.php");
 
-      $user = new User();
+        $user = new User();
 
-      $user->signIn($post["emailAddress"], $post["password"]);
+        $user->signIn($post["emailAddress"], $post["password"]);
+      }
+      catch(SignInException $e) {
+        $app->setUserError(true);
+      }
+      catch(Exception $e) {
+        $app->setSystemError(true);
+      }
     }
-
   }
 ?>

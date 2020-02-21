@@ -34,6 +34,4 @@
     $stmt->execute();
     $this->result=$stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-  }
-
-?>
+}

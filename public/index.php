@@ -8,6 +8,14 @@ session_start();
 error_reporting(E_ALL);
 ini_set("display_errors", true);
 
+// Creating the app object
+
+require_once("../app/app.php");
+$app = new App();
+
+// Loading custom exceptions
+require_once("../exceptions/exceptions.php");
+
 require_once("../dal/dal.php");
 
 // define the routes
@@ -17,7 +25,8 @@ $routes = [
   '/dashboard' => ['v' => 'dashboard'],
   '/signin' => ['c' => 'signin', 'v' => 'dashboard'],
   '/signout' => ['c' => 'signout', 'v' => 'home'],
-  '/orders' => ['c' => 'orders', 'v' => 'products']
+  '/orders' => [                   'v' => 'orders'],
+  '/signup' => ['c' => 'signup', 'v' => 'register']
 
 ];
 
